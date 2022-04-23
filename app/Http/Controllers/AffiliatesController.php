@@ -16,7 +16,9 @@ class AffiliatesController extends Controller
 
     public function index()
     {
-        $affiliates = $this->service->getAffiliates();
-        return view('welcome', compact('affiliates'));
+        $distance = 100;
+        $affiliates = $this->service->getAffiliatesWithDistanceOf($distance);
+        $background = base_path().'/resources/images/dublin.jpg';
+        return view('dublin-distance', compact('affiliates', 'distance', 'background'));
     }
 }
