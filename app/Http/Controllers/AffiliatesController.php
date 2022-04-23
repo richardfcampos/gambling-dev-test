@@ -18,7 +18,6 @@ class AffiliatesController extends Controller
     {
         $distance = 100;
         $affiliates = $this->service->getAffiliatesWithDistanceOf($distance);
-        $background = base_path().'/resources/images/dublin.jpg';
-        return view('dublin-distance', compact('affiliates', 'distance', 'background'));
+        return view('dublin-distance', compact('affiliates', 'distance'));
     }
 }

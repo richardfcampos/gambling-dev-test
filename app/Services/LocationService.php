@@ -6,9 +6,8 @@ use App\contracts\IAffilates;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 
-class LocationService implements IAffilates
+class LocationService
 {
-    private Collection $affiliates;
     private float $latFrom;
     private float $lonFrom;
 
@@ -18,10 +17,6 @@ class LocationService implements IAffilates
         $this->lonFrom = $lonFrom;
     }
 
-    public function getAffiliates()
-    {
-        return $this->affiliates;
-    }
 
     public function getDistanceFrom(float $lat, float $lon, ?string $distUnit) :float
     {

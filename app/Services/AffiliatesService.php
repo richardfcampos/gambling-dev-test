@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\contracts\IAffilates;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
 
 class AffiliatesService implements IAffilates
 {
@@ -16,7 +15,7 @@ class AffiliatesService implements IAffilates
     {
         $this->lat = $lat;
         $this->lon = $lon;
-        $collection = collect(explode(PHP_EOL ,File::get(base_path().'/database/text_db/affiliates.txt')));
+        $collection = collect(explode(PHP_EOL ,file_get_contents(__DIR__.'/../../database/text_db/affiliates.txt')));
         $this->affiliates = $collection->map(function($value) {
             $data =  json_decode($value);
             return $data;
